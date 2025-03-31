@@ -48,7 +48,7 @@ vTaskDelay(pdMS_TO_TICKS(1000)); //Delay 1000ms (1s)
 ### *Tổng quan các lệnh semaphore trong freeRTOS* ###
 1. `xSemaphoreCreateMutex()` (Mutual Exclusion - Loại trừ lẫn nhau) <br>
 *Kiểu:* Khóa tài nguyên <br>
-*Đặc điểm:* <br>
+*Đặc điểm:* 
 * Dùng để bảo vệ tài nguyên chia sẻ, chỉ duy nhất 1 task có quyền truy cập tại 1 thời điểm nhất định
 * Có tính năng **ưu tiên** (Priority Inversion Handling) - nếu một task có mức ưu tiên cao hơn đang chờ mutex, task giữ mutex có mức ưu tiên thấp hơn sẽ được nâng lên để giải phóng nhanh hơn. 
 * Task nào lấy mutex (take) thì phải trả lại mutex (give)
@@ -67,7 +67,7 @@ if(xMutex != NULL){
 ```
 2. `xSemaphoreCreateBinary()` (Binary Semaphore - Semaphore nhị phân) <br>
 *Kiểu:* Đồng bộ hóa <br>
-*Đặc điểm:* <br>
+*Đặc điểm:* 
 * Chỉ có hai trạng thái: có sẵn (1) và không có sẵn (0)
 * Không hỗ trợ ưu tiên task như mutex
 * Dùng cho đồng bộ hóa (task này báo hiệu task khác)
@@ -88,7 +88,7 @@ if(xBinarySemaphore != NULL){
 ```
 3. `xSemaphoreCreateCounting()` (Counting semaphore - Semaphore đếm) <br>
 *Kiểu:* Đếm tài nguyên <br>
-*Đặc điểm* <br>
+*Đặc điểm* 
 * Có thể đếm nhiều hơn 1 task, nghĩa là cho phép nhiều task cùng lúc take và give 
 * Hữu ích khi giới hạn số lượng tài nguyên 
 * Khi tạo cần chỉ định giá trị tối đa (`uxMaxCount`) và giá trị ban đầu (`uxInitialCount`)
