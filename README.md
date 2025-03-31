@@ -39,7 +39,7 @@ printf("Current tick count: %d\n", now);
 * Nếu `CONFIG_FREERTOS_HZ = 1000` thì mỗi tick tương ứng 1ms
 * Nếu `CONFIG_FREERTOS_HZ = 100` thì mỗi tick tương ứng 10ms
 
-4. `pdMS_TO_TICKS()` (Chuyển đổi từ milliseconds sang tick)
+4. `pdMS_TO_TICKS()` (Chuyển đổi từ milliseconds sang tick) <br>
 Nếu bạn muốn viết code dễ đọc hơn, thay vì dùng `/ portTICK_PERIOD_MS` thì có thể dùng hàm trên
 ```c 
 vTaskDelay(pdMS_TO_TICKS(1000)); //Delay 1000ms (1s)
