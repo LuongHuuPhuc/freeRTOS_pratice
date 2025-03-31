@@ -88,7 +88,7 @@ if(xBinarySemaphore != NULL){
 ```
 3. `xSemaphoreCreateCounting()` (Counting semaphore - Semaphore đếm) <br>
 *Kiểu:* Đếm tài nguyên <br>
-*Đặc điểm* 
+\+ *Đặc điểm* 
 * Có thể đếm nhiều hơn 1 task, nghĩa là cho phép nhiều task cùng lúc take và give 
 * Hữu ích khi giới hạn số lượng tài nguyên 
 * Khi tạo cần chỉ định giá trị tối đa (`uxMaxCount`) và giá trị ban đầu (`uxInitialCount`)
