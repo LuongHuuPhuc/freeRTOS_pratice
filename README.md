@@ -95,6 +95,10 @@ if(xBinarySemaphore != NULL){
 * Có thể đếm nhiều hơn 1 task, nghĩa là cho phép nhiều task cùng lúc take và give 
 * Hữu ích khi giới hạn số lượng tài nguyên 
 * Khi tạo cần chỉ định giá trị tối đa (`uxMaxCount`) và giá trị ban đầu (`uxInitialCount`) 
+* Mỗi counting semaphore yêu cần 1 lượng RAM nhỏ để giữ trạng thái của semaphore (từ heap FreeRTOS)
+#### *Mục đích* ####
+* Đếm sự kiện: Trình xử lý sẽ cung cấp một `semaphore` mỗi khi một sự kiện xảy ra (tăng giá trị đếm semaphore). Mỗi khi có 1 task cần xử lý 1 sự kiện, nó sẽ lấy (take) 1 semaphore (giảm giá trị đếm semaphore)
+* Quản lý tài nguyên: Giá trị đếm cho biết số lượng tài nguyên sử dụng. Để kiểm soát 1 tài nguyên, trước tiên 1 task phải có được 1 semaphore - **giảm giá trị đếm semaphore**. Khi giá trị đếm đạt đến 0 thì không có tài nguyên nào rảnh. Khi một task hoàn thành, nó sẽ trả lại (give) semaphore - **tăng giá trị đếm semaphore**.
 #### *Ứng dụng* ####
 * Quản lý nhiều tài nguyên giống nhau (ví dụ: 3 cảm biến có thể chạy song song)
 * Kiểm soát số lượng kết nối đồng thời (ví dụ: tối đa 5 client kết nối Wifi)
